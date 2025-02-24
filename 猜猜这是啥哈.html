@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>出色老婆的十大标准</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffe6f0;
+            font-family: 'Comic Neue', cursive;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #ff69b4;
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-family: 'Comic Neue', cursive;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #ff1493;
+            transform: scale(1.1);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .hint {
+            font-size: 24px;
+            color: #333;
+            margin: 20px;
+            text-align: center;
+        }
+
+        #content {
+            display: none;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            max-width: 90%;
+            overflow-y: auto;
+            max-height: 80vh;
+        }
+
+        #content h1 {
+            font-size: 36px;
+            color: #ff69b4;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        #content ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        #content ul li {
+            font-size: 20px;
+            color: #333;
+            margin: 10px 0;
+            position: relative;
+            padding-left: 30px;
+        }
+
+        #content ul li::before {
+            content: "❤";
+            position: absolute;
+            left: 0;
+            color: #ff69b4;
+        }
+
+        #content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            #content h1 {
+                font-size: 28px;
+            }
+
+            #content ul li {
+                font-size: 18px;
+            }
+
+            button {
+                font-size: 20px;
+                padding: 10px 20px;
+            }
+
+            .hint {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="steps">
+        <!-- 初始按钮 -->
+        <button id="button1" onclick="nextStep(1)">你觉着这是一个什么东西</button>
+        <div id="hint1" class="hint">点击按钮进入下一步</div>
+    </div>
+
+    <!-- 十大标准内容 -->
+    <div id="content">
+        <h1>出色老婆的十大标准</h1>
+        <ul>
+            <li>身高155-169cm（不用太高）</li>
+            <li>体重40-60kg（不用太重）</li>
+            <li>漂亮，好看（不用特别漂亮）</li>
+            <li>会做饭，会的不多没事戈饭好吃</li>
+            <li>性子急，但心特别善良</li>
+            <li>对家人好，孝顺父母</li>
+            <li>对猫猫不离不弃，有爱心</li>
+            <li>遇事不公，奋起反击</li>
+            <li>特别爱小志哈哈哈哈</li>
+            <li>小草小草无敌的好</li>
+        </ul>
+        <!-- 插入图片 -->
+        <img src="https://pic.ibaotu.com/02/22/79/78d888piCacU.jpg%21w280" alt="出色老婆">
+    </div>
+
+    <script>
+        let currentStep = 1;
+
+        function nextStep(step) {
+            const stepsDiv = document.getElementById("steps");
+            const contentDiv = document.getElementById("content");
+
+            if (step === 1) {
+                stepsDiv.innerHTML = `
+                    <button id="button2" onclick="nextStep(2)">这是小志对出色老婆的见解</button>
+                    <div id="hint2" class="hint">没错你点击对了</div>
+                `;
+            } else if (step === 2) {
+                stepsDiv.innerHTML = `
+                    <button id="button3" onclick="nextStep(3)">没错我的眼睛就是尺</button>
+                    <div id="hint3" class="hint">网上的我不认同</div>
+                `;
+            } else if (step === 3) {
+                stepsDiv.innerHTML = `
+                    <button id="button4" onclick="nextStep(4)">十大出色老婆</button>
+                    <div id="hint4" class="hint">猜猜十大出色老婆是什么</div>
+                `;
+            } else if (step === 4) {
+                stepsDiv.style.display = "none"; // 隐藏按钮区域
+                contentDiv.style.display = "block"; // 显示十大标准内容和图片
+            }
+        }
+    </script>
+</body>
+</html>
